@@ -1,0 +1,11 @@
+{
+  "name": "My First Extension",
+  "version": "1.0",
+  "description": "The first extension that I made.",
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "css": ["p12_style.css"],
+      "js": ["jquery.js", "p12.js"]
+    }]
+}
