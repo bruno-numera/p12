@@ -5,7 +5,7 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
+      "css": ["p12_style.css"],
       "js": ["jquery.js", "p12.js"]
-    }
-  ]
+    }]
 }
