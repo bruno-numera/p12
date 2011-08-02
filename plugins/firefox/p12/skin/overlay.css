@@ -1,0 +1,21 @@
+#p12_arrow {
+	background-color: red;
+	height: 10px;
+	width: 10px;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	z-index: 9999;
+}
+
+body {
+	-webkit-box-shadow: 0 2px 5px #888;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform 1.0s;
+}
+
+body.rotated{
+	background-color: white;
+	-webkit-transform: rotateY(180deg);
+}
+}

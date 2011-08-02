@@ -1,0 +1,7 @@
+content	p12	content/
+overlay	chrome://browser/content/browser.xul	chrome://p12/content/overlay.xul
+
+locale	p12	en-US	locale/en-US/
+
+skin	p12	classic/1.0	skin/
+style	chrome://global/content/customizeToolbar.xul	chrome://p12/skin/overlay.css
