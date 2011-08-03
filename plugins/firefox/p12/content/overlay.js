@@ -18,10 +18,18 @@ window.addEventListener("load", function() {
 }, false);
 
 function onLoaded (){
-	var body = $("body");	
-	var p12Arrow = $("<div id='p12_arrow'></div>");
-	body.append(p12Arrow);
+	var body = $(top.window.content.document.body);
+	
+	body.append("<div id='p12_arrow'></div>");
+	body.css('background-color', 'red');
+	
+	var p12Arrow = $('#p12_arrow');
+	p12Arrow.html('eita');
+	
+	
+	/*
 	p12Arrow.click(function(){
 		body.toggleClass("rotated");
-	});	
+	});
+	*/	
 }
