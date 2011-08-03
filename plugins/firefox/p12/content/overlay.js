@@ -1,10 +1,32 @@
 window.addEventListener("load", function() { 
+	if(gBrowser){
+		gBrowser.addEventListener("DOMContentLoaded", function(event){
+			var doc = event.originalTarget;
+			var win = doc.defaultView;
+			
+			
+		}, false);
+	}
+/*
 	var appcontent = document.getElementById("appcontent");   // browser
 	if(appcontent)
 		alert('adding listener');
-		appcontent.addEventListener("DOMContentLoaded", function(){
-				alert('DOM loaded');
+		appcontent.addEventListener("DOMContentLoaded", function(event){
+			var doc = event.originalTarget;
+			var win = doc.defaultView;
+			
+			if (doc.nodeName == "#document"){
+				return; // only documents
+			}
+			
+			if (win.frameElement){
+				return; // skip iframes/frames
+			}
+			
+			alert('loaded', doc.locatin.href);
+			
 		}, false);
+		*/
 }, false);
 
 /*
