@@ -10,7 +10,8 @@ window.addEventListener("load", function() {
 			
 			if (win.frameElement){
 				return; // skip iframes/frames
-			}
+			}	
+			
 			onLoaded();
 			
 		}, false);
@@ -18,18 +19,28 @@ window.addEventListener("load", function() {
 }, false);
 
 function onLoaded (){
-	var body = $(top.window.content.document.body);
+	var document = top.window.content.document;
+	var body = $(document.body);
 	
-	body.append("<div id='p12_arrow'></div>");
-	body.css('background-color', 'red');
-	
-	var p12Arrow = $('#p12_arrow');
-	p12Arrow.html('eita');
-	
+	body.append('<script type="application/x-javascript" src="chrome://p12/content/arrowScript.js"></script>')
 	
 	/*
+	var p12Arrow = $(document.getElementById("p12_arrow"));
+	
+	Application.console.open();
+	Application.console.log($);
+	
+	p12Arrow.css("background-color", "red");
+	p12Arrow.css("height", "100px");
+	p12Arrow.css("width", "100px");
+	p12Arrow.css("position", "fixed");
+	p12Arrow.css("z-index", "9999");
+	p12Arrow.css("right", "0");
+	p12Arrow.css("bottom", "0");
+	
 	p12Arrow.click(function(){
 		body.toggleClass("rotated");
 	});
-	*/	
+	*/
+		
 }
