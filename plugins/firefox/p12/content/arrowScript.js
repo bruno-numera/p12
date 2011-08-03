@@ -1,3 +1,3 @@
-(function(){
+function Arrow(){
 	alert('arrow!!');
-})()
+}

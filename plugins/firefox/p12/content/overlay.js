@@ -22,7 +22,11 @@ function onLoaded (){
 	var document = top.window.content.document;
 	var body = $(document.body);
 	
-	body.append('<script type="application/x-javascript" src="chrome://p12/content/arrowScript.js"></script>')
+	body.append('<script></script>');
+	body.append('<div></div>');
+	
+	
+	//body.append('<script type="text/x-javascript" src="chrome://p12/content/arrowScript.js"></script>')
 	
 	/*
 	var p12Arrow = $(document.getElementById("p12_arrow"));
