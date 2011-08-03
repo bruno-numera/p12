@@ -1,3 +1,0 @@
-function Arrow(){
-	alert('arrow!!');
-}
