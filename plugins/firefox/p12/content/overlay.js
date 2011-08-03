@@ -27,4 +27,3 @@ function onLoaded (){
 		body.toggleClass("rotated");
 	});	
 }
-
