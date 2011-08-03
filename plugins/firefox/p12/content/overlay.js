@@ -10,7 +10,8 @@ window.addEventListener("load", function() {
 			
 			if (win.frameElement){
 				return; // skip iframes/frames
-			}
+			}	
+			
 			onLoaded();
 			
 		}, false);
@@ -18,9 +19,20 @@ window.addEventListener("load", function() {
 }, false);
 
 function onLoaded (){
-	var body = $("body");	
-	var p12Arrow = $("<div id='p12_arrow'></div>");
-	body.append(p12Arrow);
+	var document = top.window.content.document;
+	var body = $(document.body);
+	
+	body.append("<div id='p12_arrow'></div>"); 
+	var p12Arrow = $(document.getElementById("p12_arrow"));
+	
+	p12Arrow.css("background-color", "red");
+	p12Arrow.css("height", "100px");
+	p12Arrow.css("width", "100px");
+	p12Arrow.css("position", "fixed");
+	p12Arrow.css("z-index", "9999");
+	p12Arrow.css("right", "0");
+	p12Arrow.css("bottom", "0");
+	
 	p12Arrow.click(function(){
 		body.toggleClass("rotated");
 	});	
