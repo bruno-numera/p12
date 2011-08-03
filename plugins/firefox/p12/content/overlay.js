@@ -11,7 +11,6 @@ window.addEventListener("load", function() {
 			if (win.frameElement){
 				return; // skip iframes/frames
 			}
-			
 			onLoaded();
 			
 		}, false);
@@ -21,7 +20,6 @@ window.addEventListener("load", function() {
 function onLoaded (){
 	var body = $("body");	
 	var p12Arrow = $("<div id='p12_arrow'></div>");
-	
 	body.append(p12Arrow);
 	p12Arrow.click(function(){
 		body.toggleClass("rotated");
