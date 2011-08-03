@@ -20,27 +20,30 @@ window.addEventListener("load", function() {
 
 function onLoaded (){
 	var document = top.window.content.document;
-	var body = $(document.body);
 	
-	body.append('<script type="application/x-javascript" src="chrome://p12/content/arrowScript.js"></script>')
+	var body = $(document.body);	
+	body.append("<div id='p12_arrow'></div>");
 	
-	/*
-	var p12Arrow = $(document.getElementById("p12_arrow"));
-	
-	Application.console.open();
-	Application.console.log($);
-	
+	var p12Arrow = $(document.getElementById("p12_arrow"));	
 	p12Arrow.css("background-color", "red");
-	p12Arrow.css("height", "100px");
-	p12Arrow.css("width", "100px");
+	p12Arrow.css("height", "10px");
+	p12Arrow.css("width", "10px");
 	p12Arrow.css("position", "fixed");
 	p12Arrow.css("z-index", "9999");
 	p12Arrow.css("right", "0");
 	p12Arrow.css("bottom", "0");
 	
+	body.prepend("<style type='text/css>" +
+			"body{" +
+			"transform-style: preserve-3d;" +
+	        "transition: all 1.0s linear;	" +
+			"}" +
+			"body.rotated{" +
+			"transform: rotateY(180deg);" +
+			"}" +
+			"</style>");
+	
 	p12Arrow.click(function(){
 		body.toggleClass("rotated");
-	});
-	*/
-		
+	});		
 }
