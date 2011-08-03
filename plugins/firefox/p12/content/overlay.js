@@ -1,31 +1,24 @@
-window.addEventListener("load", function() { 
-	var appcontent = document.getElementById("appcontent");   // browser
-	if(appcontent)
-		alert('adding listener');
-		appcontent.addEventListener("DOMContentLoaded", function(){
-				alert('DOM loaded');
-		}, false);
-}, false);
-
-/*
 var myExtension = {
-		init: function() {
-			,
-
-			onPageLoad: function(aEvent) {
-				var doc = aEvent.originalTarget; // doc is document that triggered "onload" event
-				// do something with the loaded page.
-				// doc.location is a Location object (see below for a link).
-				// You can use it to make your code executed on certain pages only.
-				if(doc.location.href.search("forum") > -1)
-					alert("a forum page is loaded");
-
-				// add event listener for page unload 
-				aEvent.originalTarget.defaultView.addEventListener("unload", function(event){ myExtension.onPageUnload(event); }, true);
-			},
-
-			onPageUnload: function(aEvent) {
-				// do something
-			}
-		}
-*/
+	init : function() {
+		// The event can be DOMContentLoaded, pageshow, pagehide, load or
+		// unload.
+		if (gBrowser)
+			gBrowser.addEventListener("DOMContentLoaded", this.onPageLoad,
+					false);
+	},
+	onPageLoad : function(aEvent) {		
+		var doc = aEvent.originalTarget; // doc is document that triggered
+											// the event
+		var win = doc.defaultView; // win is the window for the doc
+		// test desired conditions and do something
+		// if (doc.nodeName == "#document") return; // only documents
+		if (win != win.top) return; //only top window.
+		if (win.frameElement) return; // skip iframes/frames
+		
+		alert("page is loaded \n" + doc.location.href);
+		alert("do what you want to!");
+	}
+}
+window.addEventListener("load", function() {
+	myExtension.init();
+}, false);
