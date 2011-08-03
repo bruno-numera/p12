@@ -2,7 +2,8 @@
 <!DOCTYPE overlay SYSTEM "chrome://p12/locale/overlay.dtd">
 <overlay id="test-overlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">   
-         
-	<script type="application/x-javascript" src="jquery.js"></script>	
+    
+	<script type="application/x-javascript" src="jquery.js"></script>
 	<script type="application/x-javascript" src="overlay.js"></script>
+	
 </overlay>
