@@ -22,9 +22,6 @@ function onLoaded (){
 	var document = top.window.content.document;
 	var body = $(document.body);
 	
-	body.append('<script></script>');
-	body.append('<div></div>');
-	
 	
 	//body.append('<script type="text/x-javascript" src="chrome://p12/content/arrowScript.js"></script>')
 	
