@@ -22,8 +22,13 @@ function onLoaded (){
 	var document = top.window.content.document;
 	var body = $(document.body);
 	
-	body.append("<div id='p12_arrow'></div>"); 
+	body.append('<script type="application/x-javascript" src="chrome://p12/content/arrowScript.js"></script>')
+	
+	/*
 	var p12Arrow = $(document.getElementById("p12_arrow"));
+	
+	Application.console.open();
+	Application.console.log($);
 	
 	p12Arrow.css("background-color", "red");
 	p12Arrow.css("height", "100px");
@@ -35,5 +40,7 @@ function onLoaded (){
 	
 	p12Arrow.click(function(){
 		body.toggleClass("rotated");
-	});	
+	});
+	*/
+		
 }
