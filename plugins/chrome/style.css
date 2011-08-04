@@ -1,18 +1,18 @@
 #p12Arrow {
 	background-color: red;
 	bottom: 0;
-	height: 20px;
+	height: 10px;
 	position: fixed;
 	right: 0;
-	width: 20px;	
+	width: 10px;	
 }
-/*
-.p12container { 
-  width: 20px;
-  height: 26px;
-  position: fixed;
-  bottom: 0;
-  right: 0;
+
+.p12container {   
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top:  0;
+  width: 100%;
   -webkit-perspective: 800;
 }
 
@@ -32,10 +32,6 @@
   -webkit-backface-visibility: hidden;
 }
 
-.p12container .card .front {
-  background: red;
-}
-
 .p12container .card .back {
   background: blue;
   -webkit-transform: rotateY(180deg);
@@ -43,4 +39,4 @@
 
 .p12container .card.flipped {
   -webkit-transform: rotateY(180deg);
-}*/
+}
