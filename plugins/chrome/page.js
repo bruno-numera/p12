@@ -3,8 +3,7 @@
 	$("<div id='p12Arrow'></div>").appendTo($("body")).click(function() {
 				$(this).remove();				
 				chrome.extension.sendRequest(null, function(response) {	
-					var body = $("body");
-					
+					var body = $("body");					
 					
 					var container = $("<div class='p12container'></div>");
 					body.after(container);
