@@ -33,15 +33,19 @@ function onLoaded (){
 	p12Arrow.css("right", "0");
 	p12Arrow.css("bottom", "0");
 	
-	body.prepend("<style type='text/css>" +
-			"body{" +
-			"transform-style: preserve-3d;" +
-	        "transition: all 1.0s linear;	" +
+	var css = "<style type='text/css'> " +
+			"body.rotated {" +
+			"-moz-animation-name: p12Animation; " +
+			"-moz-animation-duration: 1s;" +
+			"-moz-animation-delay: 0s;" +
+			"-moz-animation-fill-mode : forwards} " +
+			"@-moz-keyframes p12Animation { " +
+			"from {-moz-transform : rotate(0deg)} " +
+			"to {-moz-transform : rotate(180deg)}" +
 			"}" +
-			"body.rotated{" +
-			"transform: rotateY(180deg);" +
-			"}" +
-			"</style>");
+			"</style>";    
+	
+	body.prepend(css);
 	
 	p12Arrow.click(function(){
 		body.toggleClass("rotated");
