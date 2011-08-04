@@ -1,0 +1,13 @@
+<script>
+	chrome.extension.onRequest.addListener(function(req, sender, sendResponse) {		
+		var options = {
+			format : "jpeg",
+			quality: 100
+		};
+		chrome.tabs.captureVisibleTab(null, options, function(dataUrl) {			
+			sendResponse({
+				dataUrl: dataUrl,
+			});
+		});
+	});
+</script>

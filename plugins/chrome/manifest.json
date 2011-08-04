@@ -1,11 +1,19 @@
 {
-  "name": "My First Extension",
+  "name": "Message Timer",
   "version": "1.0",
-  "description": "The first extension that I made.",
+  "description": "Times how long it takes to send a message to a content script and back.",
+  "permissions": [
+  	"tabs",
+  	"http://*/*",
+  	"https://*/*"
+  	],
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "css": ["p12_style.css"],
-      "js": ["jquery.js", "p12.js"]
-    }]
+      "css" : ["style.css"],
+      "js": ["jquery.js", "page.js"]
+    }
+  ],
+  "background_page": "background.html"
+  
 }
