@@ -56,9 +56,12 @@ function onLoaded (){
 			"}" +
 			"</style>"; 
 	
-	body.prepend(css);
-
 	p12Arrow.click(function(){
+		captureScreen();
+		rotateScreen();
+	});
+	
+	function captureScreen(){
 		var win = {
 				x : top.window.content.scrollX,
 				y : top.window.content.scrollY,
@@ -72,11 +75,14 @@ function onLoaded (){
 		canvas.width = win.w;
 		canvas.height = win.h;
 		
-		
+		//desenha a imagem do website
 		ctx.drawWindow(top.window.content, win.x, win.y, (win.w+win.x), (win.h+win.y), "rgb(254,0,0)");
-		body.empty();
-		
-		//body.toggleClass("rotated");
-	});
+	}
+	
+	function rotateScreen(){
+		//limpa todos os elementos da tela e adiciona o css relevante a animação
+		body.html(css);
+		body.toggleClass("rotated");
+	}
 }
 
