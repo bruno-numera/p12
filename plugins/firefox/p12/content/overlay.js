@@ -34,6 +34,10 @@ function onLoaded() {
 	p12Arrow.css("z-index", "9999");
 	p12Arrow.css("right", "200");
 	p12Arrow.css("bottom", "200");
+	p12Arrow.css("border-color", "red green blue orange");
+	p12Arrow.css("border-style", "solid");
+	p12Arrow.css("border-width", "25px 10px 15px 30px");
+	
 
 	var document = top.window.content.document;
 	body.after('<canvas id="webCanvas"></canvas>');
@@ -51,7 +55,7 @@ function onLoaded() {
 
 	p12Arrow.click(function() {
 		
-		$(this).animate();
+		$(this).animate({left: "400px"}, 1000);
 		
 		
 //		$(this).remove();
