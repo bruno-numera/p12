@@ -42,7 +42,7 @@ function onLoaded (){
 	var css = "<style type='text/css'> " +
 			"#webCanvas.rotated {" +
 			"-moz-animation-name: p12Animation;" +
-			"-moz-animation-duration: 10s;" +
+			"-moz-animation-duration: 2s;" +
 			"-moz-animation-delay: 0s;" +
 			"-moz-animation-fill-mode : forwards} " +
 			"@-moz-keyframes p12Animation { " +
