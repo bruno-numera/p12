@@ -1,3 +1,5 @@
+var log = Application.console.log;
+
 window.addEventListener("load", function() {
 	if (gBrowser){
 		gBrowser.addEventListener("DOMContentLoaded", function(event){
@@ -33,21 +35,48 @@ function onLoaded (){
 	p12Arrow.css("right", "0");
 	p12Arrow.css("bottom", "0");
 	
+	body.after('<canvas id="webCanvas"></canvas>');
+	var canvas = document.getElementById("webCanvas");
+	var ctx = canvas.getContext("2d");
+	
 	var css = "<style type='text/css'> " +
 			"body.rotated {" +
 			"-moz-animation-name: p12Animation; " +
-			"-moz-animation-duration: 1s;" +
+			"-moz-animation-duration: 2s;" +
 			"-moz-animation-delay: 0s;" +
 			"-moz-animation-fill-mode : forwards} " +
 			"@-moz-keyframes p12Animation { " +
-			"from {-moz-transform : rotate(0deg)} " +
-			"to {-moz-transform : rotate(180deg)}" +
+			"from {-moz-transform : rotate(0deg)}" +
+			"to {-moz-transform : rotate(360deg)}" +
 			"}" +
-			"</style>";    
+			"#webCanvas {" +
+			"position : fixed;" +
+			"left : 0;" +
+			"top : 0;" +
+			"}" +
+			"</style>"; 
 	
 	body.prepend(css);
-	
+
 	p12Arrow.click(function(){
-		body.toggleClass("rotated");
-	});		
+		var win = {
+				x : top.window.content.scrollX,
+				y : top.window.content.scrollY,
+				w : top.window.content.innerWidth,
+				h : top.window.content.innerHeight
+		}
+		
+		canvas.style.width = win.w;
+		canvas.style.height = win.h;
+		
+		canvas.width = win.w;
+		canvas.height = win.h;
+		
+		
+		ctx.drawWindow(top.window.content, win.x, win.y, (win.w+win.x), (win.h+win.y), "rgb(254,0,0)");
+		body.empty();
+		
+		//body.toggleClass("rotated");
+	});
 }
+
