@@ -30,55 +30,63 @@ function onLoaded() {
 	p12Arrow.css("background-color", "red");
 	p12Arrow.css("height", "200px");
 	p12Arrow.css("width", "300px");
-	p12Arrow.css("position", "relative");
+	p12Arrow.css("position", "fixed");
 	p12Arrow.css("z-index", "9999");
+	p12Arrow.css("right", "200");
+	p12Arrow.css("bottom", "200");
 
-	 body.after('<canvas id="webCanvas"></canvas>');
-	 var canvas = document.getElementById("webCanvas");
-	 var ctx = canvas.getContext("2d");
-	//
-	// var css = "<style type='text/css'> " + "body.rotated {"
-	// + "-moz-animation-name: p12Animation; "
-	// + "-moz-animation-duration: 2s;" + "-moz-animation-delay: 0s;"
-	// + "-moz-animation-fill-mode : forwards} "
-	// + "@-moz-keyframes p12Animation { "
-	// + "from {-moz-transform : rotate(0deg)}"
-	// + "to {-moz-transform : rotate(360deg)}" + "}" + "#webCanvas {"
-	// + "position : fixed;" + "left : 0;" + "top : 0;" + "}" + "</style>";
+	var document = top.window.content.document;
+	body.after('<canvas id="webCanvas"></canvas>');
+	var canvas = document.getElementById("webCanvas");
+	var ctx = canvas.getContext("2d");
+
+	var css = "<style type='text/css'> " + "#webCanvas.rotated {"
+			+ "-moz-animation-name: p12Animation;"
+			+ "-moz-animation-duration: 2s;" + "-moz-animation-delay: 0s;"
+			+ "-moz-animation-fill-mode : forwards} "
+			+ "@-moz-keyframes p12Animation { "
+			+ "from {-moz-transform : scaleX(1)}"
+			+ "to {-moz-transform : scaleX(-1)}" + "}" + "#webCanvas {"
+			+ "position : fixed;" + "left : 0;" + "top : 0;" + "}" + "</style>";
 
 	p12Arrow.click(function() {
-		$(this).flip({direction:"lr"});
+		
+		$(this).animate();
+		
+		
+//		$(this).remove();
+//		
+//		var win = {
+//			x : top.window.content.scrollX,
+//			y : top.window.content.scrollY,
+//			w : top.window.content.innerWidth,
+//			h : top.window.content.innerHeight
+//		}
+//
+//		canvas.style.width = win.w;
+//		canvas.style.height = win.h;
+//
+//		canvas.width = win.w;
+//		canvas.height = win.h;
+//		// desenha a imagem do website
+//		ctx.drawWindow(top.window.content, win.x, win.y, (win.w + win.x),
+//				(win.h + win.y), "rgb(254,0,0)");
+//		
+//		// limpa todos os elementos da tela e adiciona o css relevante a animação
+//		// desenha a imagem do website
+//		ctx.drawWindow(top.window.content, win.x, win.y, (win.w + win.x),
+//				(win.h + win.y), "rgb(254,0,0)");
+//
+//		// limpa todos os elementos da tela e adiciona o css relevante a
+//		// animação
+//		$(document.getElementById("webCanvas")).toggleClass("rotated");
+//
+//		body.html(css);
+//		body.toggleClass("rotated");
 	});
-
-	function captureScreen() {
-		var win = {
-			x : top.window.content.scrollX,
-			y : top.window.content.scrollY,
-			w : top.window.content.innerWidth,
-			h : top.window.content.innerHeight
-		}
-
-		canvas.style.width = win.w;
-		canvas.style.height = win.h;
-
-		canvas.width = win.w;
-		canvas.height = win.h;
-
-		// desenha a imagem do website
-		ctx.drawWindow(top.window.content, win.x, win.y, (win.w + win.x),
-				(win.h + win.y), "rgb(254,0,0)");
-	}
-
-	function rotateScreen() {
-		// limpa todos os elementos da tela e adiciona o css relevante a
-		// animação
-		body.html(css);
-		body.toggleClass("rotated");
-
-	}
 }
 
-function overrideJqueryContext(){
+function overrideJqueryContext() {
 	var document = top.window.content.document;
 	jQuery.noConflict();
 	$ = function(selector, context) {
