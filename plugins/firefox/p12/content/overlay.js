@@ -40,14 +40,14 @@ function onLoaded (){
 	var ctx = canvas.getContext("2d");
 	
 	var css = "<style type='text/css'> " +
-			"body.rotated {" +
-			"-moz-animation-name: p12Animation; " +
-			"-moz-animation-duration: 2s;" +
+			"#webCanvas.rotated {" +
+			"-moz-animation-name: p12Animation;" +
+			"-moz-animation-duration: 10s;" +
 			"-moz-animation-delay: 0s;" +
 			"-moz-animation-fill-mode : forwards} " +
 			"@-moz-keyframes p12Animation { " +
-			"from {-moz-transform : rotate(0deg)}" +
-			"to {-moz-transform : rotate(360deg)}" +
+			"from {-moz-transform : scaleX(1)}" +
+			"to {-moz-transform : scaleX(-1)}" +
 			"}" +
 			"#webCanvas {" +
 			"position : fixed;" +
@@ -55,13 +55,8 @@ function onLoaded (){
 			"top : 0;" +
 			"}" +
 			"</style>"; 
-	
+
 	p12Arrow.click(function(){
-		captureScreen();
-		rotateScreen();
-	});
-	
-	function captureScreen(){
 		var win = {
 				x : top.window.content.scrollX,
 				y : top.window.content.scrollY,
@@ -77,12 +72,11 @@ function onLoaded (){
 		
 		//desenha a imagem do website
 		ctx.drawWindow(top.window.content, win.x, win.y, (win.w+win.x), (win.h+win.y), "rgb(254,0,0)");
-	}
-	
-	function rotateScreen(){
+		
 		//limpa todos os elementos da tela e adiciona o css relevante a animação
+		$(document.getElementById("webCanvas")).toggleClass("rotated");
+		
 		body.html(css);
-		body.toggleClass("rotated");
-	}
+	});
 }
 
